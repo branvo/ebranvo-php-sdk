@@ -1,0 +1,36 @@
+{
+  "name": "branvo/ebranvo-php-sdk",
+  "description": "Sdk para integração com a API E-Branvo.",
+  "keywords": [
+    "branvo",
+    "ebranvo",
+    "e-branvo",
+    "sdk",
+    "integração"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/branvo/ebranvo-php-sdk",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Branvo",
+      "email": "contato@branvo.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "EBranvo\\": [
+        "src/",
+        "tests/"
+      ]
+    }
+  },
+  "require": {
+    "php": "^7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6",
+    "php-coveralls/php-coveralls": "^2",
+    "phpdocumentor/phpdocumentor": "2.*"
+  }
+}
