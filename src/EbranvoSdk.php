@@ -3,6 +3,7 @@
 namespace Ebranvo;
 
 use Ebranvo\Store;
+use Ebranvo\Util\Json;
 use Ebranvo\Environment;
 use Ebranvo\Exception\EbranvoException;
 use Ebranvo\Interfaces\EndPointController;
@@ -60,10 +61,10 @@ final class EbranvoSdk {
 
     private function add(string $endPoint, array $body) {
         $url = $this->version . '/' . $endPoint;
-        return $this->request($url, 'POST', $body);
+        return $this->request($url, 'POST', Json::encode($body));
     }
 
-    private function request(string $url, $method, $body = []) {
+    private function request(string $url, string $method, string $body = null) {
         $headers = ['Account-Token' => $this->store->getToken()];
         $client = new Request($this->client);
         return $client->send($url, $method, $headers, $body);
