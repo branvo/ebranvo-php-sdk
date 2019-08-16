@@ -60,8 +60,9 @@ final class EbranvoSdk {
     }
 
     private function add(string $endPoint, array $body) {
-        $url = $this->replace($endPoint);
-        return $this->request($url, 'POST', Json::encode($body));
+        $url    = $this->replace($endPoint);
+        $method = isset($body['id']) ? 'PUT' : 'POST';
+        return $this->request($url, $method, Json::encode($body));
     }
 
     private function replace(string $string, string $param = '') {
