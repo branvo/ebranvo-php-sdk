@@ -45,27 +45,31 @@ final class EbranvoSdk {
     }
 
     private function get(string $endPoint, int $id) {
-        $url = $this->version . '/' . $endPoint . '/' . $id;
+        $url = $this->replace($endPoint, $id);
         return $this->request($url, 'GET');
     }
 
     private function all(string $endPoint, int $page) {
-        $url = $this->version . '/' . $endPoint . '/' . $page;
+        $url = $this->replace($endPoint, $page);
         return $this->request($url, 'GET');
     }
 
     private function del(string $endPoint, int $id) {
-        $url = $this->version . '/' . $endPoint . '/' . $id;
+        $url = $this->replace($endPoint, $id);
         return $this->request($url, 'DELETE');
     }
 
     private function add(string $endPoint, array $body) {
-        $url = $this->version . '/' . $endPoint;
+        $url = $this->replace($endPoint);
         return $this->request($url, 'POST', Json::encode($body));
     }
 
+    private function replace(string $string, string $param = '') {
+        return rtrim(str_replace(['{version}', '{param}'], [$this->version, $param], $string), '/');
+    }
+
     private function request(string $url, string $method, string $body = null) {
-        $headers = ['Account-Token' => $this->store->getToken()];
+        $headers = ['Account-Token' => $this->store->getToken(), 'Content-Type' => 'application/json'];
         $client = new Request($this->client);
         return $client->send($url, $method, $headers, $body);
     }

@@ -25,11 +25,7 @@ class Request {
             $response = $this->client->send($request);
             return $this->return($response->getBody());
         } catch (\GuzzleHttp\Exception\ClientException $e) {
-            return $this->return(
-                $e->hasResponse()            ?
-                $e->getResponse()->getBody() :
-                ['success' => false, 'Ocorreu um erro inesperado']
-            );
+            return $this->return($e->getResponse()->getBody());
         } catch (\Exception $e) {
             return $this->return(['success' => false, 'Ocorreu um erro inesperado']);
         }
