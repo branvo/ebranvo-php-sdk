@@ -10,7 +10,7 @@ class EBranvoTest extends TestCase {
     public function setUp() {
         $this->ebranvo = new EbranvoSdk(
             new \Ebranvo\Store('D9442D9700A98EEF27105C799496BDB9'),
-            new \Ebranvo\Environment('development')
+            new \Ebranvo\Environment('testing')
         );
     }
 

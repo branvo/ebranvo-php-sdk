@@ -2,24 +2,26 @@
 
 namespace Ebranvo;
 
-use GuzzleHttp\Client;
-
 class Request {
     private $client;
     
-    public function __construct(Client $client) {
+    public function __construct(\GuzzleHttp\Client $client) {
         $this->client = $client;
     }
 
+    /**
+     * send
+     *
+     * @param  string $url
+     * @param  string $method
+     * @param  array $headers
+     * @param  array $body
+     *
+     * @return string
+     */
     public function send(string $url, string $method, array $headers, array $body = []) {
         try {
-            $response = $this->client->request(
-                $method,
-                $url, [
-                'headers' => $headers,
-                'json'    => json_encode($body)
-            ]);
-
+            $response = $this->client->request($method, $url, ['headers' => $headers, 'json' => $body]);
             return $response->getBody();
 
             // $body = $response->getBody();

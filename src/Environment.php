@@ -6,10 +6,9 @@ class Environment {
     private $url;
 
     private $urls = [
-        'live'        => 'https://api.ebranvo.com/v1',
-        'sandbox'     => 'https://sandbox-api.ebranvo.com/v1',
-        'testing'     => 'testing-api.ebranvo.com/v1',
-        'development' => '192.168.33.101/branvo/ebranvo_api/v1'
+        'live'        => 'https://api.ebranvo.com/',
+        'sandbox'     => 'https://sandbox-api.ebranvo.com/',
+        'testing'     => 'http://testing-api.ebranvo.com/',
     ];
 
     public function __construct($env = null) {
@@ -31,9 +30,11 @@ class Environment {
     }
 
     /**
+     * getUrl
+     *
      * @return string
      */
-    public function getUrl() {
+    public function getUrl(): string {
         return $this->url;
     }
 }

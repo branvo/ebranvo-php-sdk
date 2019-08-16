@@ -8,6 +8,7 @@ use Ebranvo\Exception\EbranvoException;
 use Ebranvo\Interfaces\EndPointController;
 
 final class EbranvoSdk {
+    private $version = 'v1';
     private $store;
     private $client;
 
@@ -17,13 +18,15 @@ final class EbranvoSdk {
     }
 
     public function __call(string $method, array $arguments) {
-        $object   = $this->getObjectByMethod($method);
-        $endPoint = $object->getEndPoint($action);
-        $argument = $arguments[0] ?? null;
+        list($object, $action) = $this->parseMethodCall($method);
+
+        $endPoint  = $object->getEndPoint($action);
+        $argument  = $arguments[0] ?? null;
+
         return $this->$action($endPoint, $argument);
     }
 
-    private function getObjectByMethod(string $method) {
+    private function parseMethodCall(string $method) {
         $action    = substr($method, 0, 3);
         $className = substr($method, 3);
 
@@ -37,31 +40,32 @@ final class EbranvoSdk {
             throw new EbranvoException("Método {$action} não encontrado no objeto {$class}.");
         }
 
-        return $object;
+        return [$object, $action];
     }
 
     private function get(string $endPoint, int $id) {
-        $url = $endPoint . '/' . $id;
+        $url = $this->version . '/' . $endPoint . '/' . $id;
         return $this->request($url, 'GET');
     }
 
     private function all(string $endPoint, int $page) {
-        $url = $endPoint . '/' . $page;
+        $url = $this->version . '/' . $endPoint . '/' . $page;
         return $this->request($url, 'GET');
     }
 
     private function del(string $endPoint, int $id) {
-        $url = $endPoint . '/' . $id;
+        $url = $this->version . '/' . $endPoint . '/' . $id;
         return $this->request($url, 'DELETE');
     }
 
     private function add(string $endPoint, array $body) {
-        return $this->request($endPoint, 'POST', $body);
+        $url = $this->version . '/' . $endPoint;
+        return $this->request($url, 'POST', $body);
     }
 
-    private function request(string $endPoint, $method, $body = []) {
+    private function request(string $url, $method, $body = []) {
         $headers = ['Account-Token' => $this->store->getToken()];
         $client = new Request($this->client);
-        return $client->send($endPoint, $method, $headers, $body);
+        return $client->send($url, $method, $headers, $body);
     }
 }
