@@ -6,8 +6,10 @@ class Environment {
     private $url;
 
     private $urls = [
-        'live'    => 'https://api.ebranvo.com/',
-        'sandbox' => 'https://sandbox-api.ebranvo.com/'
+        'live'        => 'https://api.ebranvo.com/v1',
+        'sandbox'     => 'https://sandbox-api.ebranvo.com/v1',
+        'testing'     => 'testing-api.ebranvo.com/v1',
+        'development' => '192.168.33.101/branvo/ebranvo_api/v1'
     ];
 
     public function __construct($env = null) {

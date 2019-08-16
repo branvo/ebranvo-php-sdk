@@ -1,16 +1,24 @@
 <?php
 
+namespace Ebranvo;
+
 use PHPUnit\Framework\TestCase;
 
 class EBranvoTest extends TestCase {
     private $ebranvo;
 
     public function setUp() {
-        $this->ebranvo = new \EbranvoSdk();
+        $this->ebranvo = new EbranvoSdk(
+            new \Ebranvo\Store('D9442D9700A98EEF27105C799496BDB9'),
+            new \Ebranvo\Environment('development')
+        );
     }
 
     public function test_should_throws_exception_when_property_not_exists() {
-        $ebranvo->clients->add([
+        $response = $this->ebranvo->allCustomer(1);
+        var_dump($response); exit;
+
+        $this->ebranvo->addCustomer([
             'type'      => 'PF',
             'name'      => 'NOME DO CLIENTE',
             'document'  => '04394552001',
@@ -20,21 +28,5 @@ class EBranvoTest extends TestCase {
             'gender'    =>'2',
             'active'    => 1
         ]);
-        
-        $ebranvo->addresses->add([
-            'street'          => 'Rua João Pessoa',
-            'number'          => '17',
-            'complement'      => 'Sala 04',
-            'district'        => 'Centro',
-            'city'            => 'Garibaldi',
-            'state'           => 'RS',
-            'postcode'        => '95720000',
-            'responsibleName' => 'Cleberson Bieleski',
-            'reference'       => 'Super Apolo',
-            'type'            => 1,
-            'active'          => 1
-        ]);
-
-        $ebranvo->send();
     }
 }
