@@ -80,6 +80,6 @@ final class EbranvoSdk {
     private function request(string $url, string $method, string $body = null) {
         $headers = ['Account-Token' => $this->store->getToken(), 'Content-Type' => 'application/json'];
         $client = new Request($this->client);
-        return $client->send($url, $method, $headers, $body);
+        return \Ebranvo\Util\Json::decode($client->send($url, $method, $headers, $body));
     }
 }
