@@ -24,8 +24,8 @@ Comece instanciando um objeto EbranvoSdk, como no exemplo abaixo:
 
 ```php
 $ebranvo = new \Ebranvo\EbranvoSdk(
-	new \Ebranvo\Store('TOKEN AQUI'),
-	new \Ebranvo\Environment('live ou sandbox')
+    new \Ebranvo\Store('TOKEN AQUI'),
+    new \Ebranvo\Environment('live ou sandbox')
 );
 ```
 Pronto, você já tem acesso às informações dessa loja.
@@ -63,9 +63,9 @@ $response = $ebranvo->addCustomer([
 ]);
 
 if ($response['success']) {
-	echo $response['data'];
+    echo $response['data'];
 } else {
-	echo $response['errorMessage'];
+    echo $response['errorMessage'];
 }
 
 ```
@@ -76,14 +76,14 @@ if ($response['success']) {
 
 // A presença do id indica que é uma operação de atualização
 $response = $ebranvo->addCustomer([
-	'id' => 123
-	'active' => false
+    'id' => 123
+    'active' => false
 ]);
 
 if ($response['success']) {
-	echo $response['data'];
+    echo $response['data'];
 } else {
-	echo $response['errorMessage'];
+    echo $response['errorMessage'];
 }
 
 ```
@@ -95,9 +95,9 @@ if ($response['success']) {
 $response = $ebranvo->getCustomer($id = 123);
 
 if ($response['success']) {
-	echo $response['data'];
+    echo $response['data'];
 } else {
-	echo $response['errorMessage'];
+    echo $response['errorMessage'];
 }
 ```
 
@@ -106,9 +106,9 @@ if ($response['success']) {
 $response = $ebranvo->allCustomers($page = 1);
 
 if ($response['success']) {
-	echo $response['data'];
+    echo $response['data'];
 } else {
-	echo $response['errorMessage'];
+    echo $response['errorMessage'];
 }
 ```
 
@@ -118,9 +118,9 @@ if ($response['success']) {
 $response = $ebranvo->delCustomer($id = 123);
 
 if ($response['success']) {
-	echo $response['data'];
+    echo $response['data'];
 } else {
-	echo $response['errorMessage'];
+    echo $response['errorMessage'];
 }
 ```
 
@@ -130,7 +130,7 @@ if ($response['success']) {
 
 ```php
 $response = $ebranvo->addAddress([
-	'idClient' => 123,
+    'idClient' => 123,
     'street'=> 'Rua exemplo',
     'number'=> '0',
     'complement'=> 'Sala 00',
@@ -144,9 +144,9 @@ $response = $ebranvo->addAddress([
 ]);
 
 if ($response['success']) {
-	echo $response['data'];
+    echo $response['data'];
 } else {
-	echo $response['errorMessage'];
+    echo $response['errorMessage'];
 }
 
 ```
@@ -157,14 +157,14 @@ if ($response['success']) {
 
 // A presença do id indica que é uma operação de atualização
 $response = $ebranvo->addAddress([
-	'id' => 321
-	'active' => false
+    'id' => 321
+    'active' => false
 ]);
 
 if ($response['success']) {
-	echo $response['data'];
+    echo $response['data'];
 } else {
-	echo $response['errorMessage'];
+    echo $response['errorMessage'];
 }
 
 ```
@@ -176,9 +176,9 @@ if ($response['success']) {
 $response = $ebranvo->getAddress($id = 321);
 
 if ($response['success']) {
-	echo $response['data'];
+    echo $response['data'];
 } else {
-	echo $response['errorMessage'];
+    echo $response['errorMessage'];
 }
 ```
 
@@ -187,9 +187,9 @@ if ($response['success']) {
 $response = $ebranvo->allAddresses($idCustomer = 123);
 
 if ($response['success']) {
-	echo $response['data'];
+    echo $response['data'];
 } else {
-	echo $response['errorMessage'];
+    echo $response['errorMessage'];
 }
 ```
 
@@ -199,8 +199,8 @@ if ($response['success']) {
 $response = $ebranvo->delAddress($id = 321);
 
 if ($response['success']) {
-	echo $response['data'];
+    echo $response['data'];
 } else {
-	echo $response['errorMessage'];
+    echo $response['errorMessage'];
 }
 ```
