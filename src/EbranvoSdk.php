@@ -29,7 +29,7 @@ final class EbranvoSdk {
 
     private function parseMethodCall(string $method) {
         $action    = substr($method, 0, 3);
-        $className = substr($method, 3);
+        $className = $this->parseClassName(substr($method, 3));
 
         $class = '\\Ebranvo\\Ecommerce\\' . $className;
         if (!class_exists($class)) {
@@ -42,6 +42,14 @@ final class EbranvoSdk {
         }
 
         return [$object, $action];
+    }
+
+    private function parseClassName(string $class) {
+        $singular  = [
+            'Customers' => 'Customer',
+            'Addresses' => 'Address'
+        ];
+        return $singular[$class] ?? $class;
     }
 
     private function get(string $endPoint, int $id) {
