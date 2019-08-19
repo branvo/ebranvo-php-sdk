@@ -6,15 +6,15 @@ SDK para integração com a API E-Branvo Lojas Virtuais na linguagem PHP
 ## Sumário
 1. [Primeiros Passos](#primeiros-passos)
 2. [Cliente](#cliente)
-    2.1 [Inserir](#inserir)
-    2.2 [Atualizar](#atualizar)
-    2.3 [Consultar](#consultar)
-    2.4 [Remover](#remover)
+    1. [Inserir](#inserir)
+    2. [Atualizar](#atualizar)
+    3. [Consultar](#consultar)
+    4. [Remover](#remover)
 3. [Endereço](#endereço)
-    3.1 [Inserir](#inserir-1)
-    3.2 [Atualizar](#atualizar-1)
-    3.3 [Consultar](#consultar-1)
-    3.4 [Remover](#remover-1)
+    1. [Inserir](#inserir-1)
+    2. [Atualizar](#atualizar-1)
+    3. [Consultar](#consultar-1)
+    4. [Remover](#remover-1)
     
 ## Primeiros Passos
 
