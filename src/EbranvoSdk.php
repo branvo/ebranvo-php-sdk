@@ -82,4 +82,9 @@ final class EbranvoSdk {
         $client = new Request($this->client);
         return \Ebranvo\Util\Json::decode($client->send($url, $method, $headers, $body));
     }
+
+    public function search(array $search) {
+        $url = $this->replace('{version}/branvo/search');
+        return $this->request($url, 'POST', Json::encode($search));
+    }
 }

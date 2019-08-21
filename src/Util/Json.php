@@ -23,6 +23,6 @@ final class Json {
      * @return array
      */
     public static function decode(string $json): array {
-        return json_decode($json, true);
+        return json_decode($json, true) ?: [];
     }
 }
