@@ -6,9 +6,9 @@ class Environment {
     private $url;
 
     private $urls = [
-        'live'        => 'https://api.ebranvo.com/',
-        'sandbox'     => 'https://sandbox-api.ebranvo.com/',
-        'testing'     => 'http://testing-api.ebranvo.com/',
+        'live'        => 'https://api.dezwork.com/',
+        'sandbox'     => 'https://sandbox-api.dezwork.com/',
+        'testing'     => 'http://testing-api.dezwork.com/',
     ];
 
     public function __construct($env = null) {
