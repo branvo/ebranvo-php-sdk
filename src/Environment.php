@@ -8,7 +8,7 @@ class Environment {
     private $urls = [
         'live'        => 'https://api.dezwork.com/',
         'sandbox'     => 'https://sandbox-api.dezwork.com/',
-        'testing'     => 'http://testing-api.dezwork.com/',
+        'testing'     => 'http://127.0.0.1/dezwork/api/',
     ];
 
     public function __construct($env = null) {
