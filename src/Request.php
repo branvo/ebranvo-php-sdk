@@ -23,7 +23,7 @@ class Request {
         try {
             $request  = new \GuzzleHttp\Psr7\Request($method, $url, $headers, $body);
             $response = $this->client->send($request);
-            return $this->return($response->getBody());
+            return $this->return($response->getBody()->getContents());
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             return $this->return($e->getResponse()->getBody());
         } catch (\Exception $e) {
@@ -53,6 +53,6 @@ class Request {
     private function return($content): string {
         if ($content instanceof \GuzzleHttp\Psr7\Stream)
             return $this->read($content);
-        return \Ebranvo\Util\Json::encode($content);
+        return $content;
     }
 }
