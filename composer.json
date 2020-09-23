@@ -1,5 +1,5 @@
 {
-  "name": "branvo/ebranvo-php-sdk",
+  "name": "dezworksdk/ebranvo-php-sdk",
   "description": "Sdk para integração com a API E-Branvo.",
   "keywords": [
     "branvo",
