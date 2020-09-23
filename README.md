@@ -1,7 +1,7 @@
 
 # dezwork-php-sdk
 
-SDK para integração com a API E-Branvo Lojas Virtuais na linguagem PHP
+SDK para integração com a API E-Branvo Lojas Virtuais na linguagem PHP.
 
 ## Sumário
 1. [Primeiros Passos](#primeiros-passos)
