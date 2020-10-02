@@ -7,7 +7,7 @@ class Environment {
 
     private $urls = [
         'live'        => 'https://api.dezwork.com/',
-        'sandbox'     => 'https://sandbox-api.dezwork.com/',
+        'sandbox'     => 'https://teste-api.dezwork.com/',
         'testing'     => 'https://teste-api.dezwork.com/',
     ];
 
